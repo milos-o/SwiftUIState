@@ -7,7 +7,7 @@ final class Model: ObservableObject {
 }
 
 struct ContentView: View {
-    var model = Model()
+    @ObservedObject var model = Model()
 
     var body: some View {
         Button("\(model.counter)") {
@@ -26,7 +26,6 @@ final class SwiftUIStateTests: XCTestCase {
         }
         XCTAssertEqual(button.title, "0")
         button.action()
-        node.needsRebuild = true // TODO this should happen automatically
         node.rebuildIfNeeded()
         XCTAssertEqual(button.title, "1")
     }

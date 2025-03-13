@@ -8,6 +8,14 @@ protocol BuiltinView {
 }
 
 extension View {
+    func observeObjects(_ node: Node) {
+        let m = Mirror(reflecting: self)
+        for child in m.children {
+            guard let observedObject = child.value as? AnyObservedObject else { return }
+            observedObject.addDependency(node)
+        }
+    }
+
     func buildNodeTree(_ node: Node) {
         if let b = self as? BuiltinView {
             node.view = b
@@ -17,7 +25,9 @@ extension View {
         node.view = AnyBuiltinView(self)
 
         // check if we actually need to execute the body
-        
+
+        self.observeObjects(node)
+
         let b = body
         if node.children.isEmpty {
             node.children = [Node()]

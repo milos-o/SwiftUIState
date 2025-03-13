@@ -1,11 +1,3 @@
-//
-//  AnyBuiltinView.swift
-//  SwiftUIState
-//
-//  Created by Milos on 13.3.25..
-//
-
-import Foundation
 
 struct AnyBuiltinView: BuiltinView {
     private var buildNodeTree: (Node) -> ()

@@ -10,5 +10,4 @@ final class Node {
             view._buildNodeTree(self)
         }
     }
-
 }

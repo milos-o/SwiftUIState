@@ -15,8 +15,8 @@ extension View {
     }
 }
 
-nonisolated(unsafe) var nestedBodyCount = 0
-nonisolated(unsafe) var contentViewBodyCount = 0
+nonisolated(unsafe) fileprivate var nestedBodyCount = 0
+nonisolated(unsafe) fileprivate var contentViewBodyCount = 0
 
 struct ContentView: View {
     @ObservedObject var model = Model()

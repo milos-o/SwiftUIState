@@ -37,6 +37,8 @@ extension View {
             return
         }
 
+        currentGlobalBodyNode = node
+
         let shouldRunBody = node.needsRebuild || !self.equalToPrevious(node)
         if !shouldRunBody {
             for child in node.children {
